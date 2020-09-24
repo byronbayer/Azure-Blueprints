@@ -1,0 +1,33 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "owner": {
+            "value": "[parameters('owner')]"
+        },
+        "applicationName": {
+             "value": "[parameters('applicationName')]"
+        },
+        "usage": {
+            "value": "[parameters('usage')]"
+        },
+        "mySqlSkuName": {
+            "value": "[parameters('mySqlSkuName')]"
+        },
+        "mySqlSkuTier": {
+            "value": "[parameters('mySqlSkuTier')]"
+        },
+        "mySqlSkuFamily": {
+            "value": "[parameters('mySqlSkuFamily')]"
+        },
+        "mySqlStorageMB": {
+            "value": "[parameters('mySqlStorageMB')]"
+        },
+        "mySqlAdminLogin": {
+             "value": "[parameters('mySqlAdminLogin')]"
+        },
+        "mySqlAdminPassword": {
+            "value": "[parameters('mySqlAdminPassword')]"
+        }
+    }
+}

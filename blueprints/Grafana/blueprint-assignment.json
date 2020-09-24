@@ -1,0 +1,32 @@
+{
+    "identity": {
+        "type": "systemAssigned"
+    },
+    "location": "West Europe",
+    "properties": {
+        "parameters": {
+            "owner": {
+                "value": "s126"
+            },
+            "applicationName": {
+                "value": "grafana"
+            },
+            "environment": {
+                "value": "001"
+            },
+            "mySqlAdminLogin": {
+                "value": "AdminUser"
+            },
+            "mySqlAdminPassword": {
+                "value": "P@ssword1234"
+            }
+            
+        },
+        "resourceGroups": {
+            "bpRg": {
+                "name": "s141d01-tlevels-gfa",
+                "location": "West Europe"
+            }
+        }
+    }
+}

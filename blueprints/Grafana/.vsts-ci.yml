@@ -1,0 +1,39 @@
+name: CreateGrafana
+resources:
+  repositories:
+    - repository: self
+      persistCredentials: true
+      clean: true
+
+trigger:
+  branches:
+    include:
+    - master
+  paths:
+    include:
+    - Blueprints/Grafana/*
+
+jobs:
+- job: CreateGrafanaBlueprint
+  displayName: Upsert Grafana Blueprint
+  pool:
+    vmImage: windows-latest
+  steps:
+  - checkout: self  
+  - task: AzurePowerShell@4
+    inputs:
+      azureSubscription: $(serviceConnection)
+      ScriptType: 'InlineScript'
+      Inline: |
+        $artifacts = @([pscustomobject]@{artifactName = 'mySqlServer'; Template = 'Blueprints\Artifacts\mysql-server.json'; Parameters = 'Blueprints\Artifacts\mysql-server-params.json' }
+        )
+        Powershell\Blueprints\UpsertDefinition.ps1 `
+            -subscriptionId $(subscriptionId) `
+            -bluePrintName Grafana `
+            -blueprintFile Blueprints\Grafana\blueprint.json `
+            -bluePrintResourceGroupName bpRg `
+            -publish $true `
+            -listOfArtifactAndParameterPaths $artifacts `
+            -location 'uksouth'
+      azurePowerShellVersion: 'LatestVersion'
+      pwsh: true

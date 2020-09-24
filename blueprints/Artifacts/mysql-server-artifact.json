@@ -1,0 +1,11 @@
+{
+    "kind": "template",
+    "properties": {
+        "template": {
+            "templateLink": {
+                "uri": "https://raw.githubusercontent.com/DFE-Digital/operations-devops-tools/master/Blueprints/Artifacts/mysql-server.json",
+                "contentVersion": "1.0.0.0"
+              }
+        }
+    }
+}

@@ -1,0 +1,33 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "appServiceName": {
+            "value": "[parameters('appServiceName')]"
+        },
+        "appServicePlanName": {
+            "value": "[parameters('appServicePlanName')]"
+        },
+        "appServicePlanRG": {
+            "value": "[parameters('appServicePlanRG')]"
+        },
+        "runtimeStack": {
+            "value": "[parameters('runtimeStack')]"
+        },
+        "customHostName": {
+            "value": "[parameters('customHostName')]"
+        },
+        "certificateThumbprint": {
+            "value": "[parameters('certificateThumbprint')]"
+        },
+        "appServiceAppSettings": {
+            "value": "[parameters('appServiceAppSettings')]"
+        },
+        "deployStagingSlot": {
+            "value": "[parameters('deployStagingSlot')]"
+        },
+        "azureStorageAccounts": {
+            "value": "[parameters('azureStorageAccounts')]"
+        }
+    }
+}
