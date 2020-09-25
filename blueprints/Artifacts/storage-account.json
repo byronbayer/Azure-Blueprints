@@ -11,7 +11,7 @@
                 "description": "The application that is going to be using the mySql server i.e. T-Levels or Signin"
             }
         },
-        "usage": {
+        "environment": {
             "type": "string",
             "metadata": {
                 "description": "This is what the infrastructure is going to be used for such as gfa for Grafana"
@@ -50,7 +50,7 @@
         }
     },
     "variables": {
-        "storageAccountName": "[concat(parameters('owner'), parameters('applicationName'), parameters('usage') 'str')]"
+        "storageAccountName": "[concat(parameters('owner'), parameters('applicationName'), parameters('environment') 'str')]"
     },
     "resources": [
         {

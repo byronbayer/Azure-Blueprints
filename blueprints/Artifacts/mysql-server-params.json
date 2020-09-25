@@ -8,8 +8,8 @@
         "applicationName": {
              "value": "[parameters('applicationName')]"
         },
-        "usage": {
-            "value": "[parameters('usage')]"
+        "environment": {
+            "value": "[parameters('environment')]"
         },
         "mySqlSkuName": {
             "value": "[parameters('mySqlSkuName')]"

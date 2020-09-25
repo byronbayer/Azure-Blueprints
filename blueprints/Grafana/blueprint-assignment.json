@@ -8,6 +8,9 @@
             "owner": {
                 "value": "s126"
             },
+            "purpose": {
+                "value": "dev"
+            },
             "applicationName": {
                 "value": "grafana"
             },
@@ -18,9 +21,13 @@
                 "value": "AdminUser"
             },
             "mySqlAdminPassword": {
-                "value": "P@ssword1234"
+                "reference": {
+                    "keyVault": {
+                        "id": "subscriptions/83140706-7c33-427a-a373-27883c159e91/resourceGroups/s123-dev-001/providers/Microsoft.KeyVault/vaults/s123-dev-001-kv/keys"
+                    },
+                    "secretName": "mySqlAdminPassword"
+                }
             }
-            
         },
         "resourceGroups": {
             "bpRg": {

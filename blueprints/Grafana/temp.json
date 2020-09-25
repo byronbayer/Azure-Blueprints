@@ -1,0 +1,39 @@
+{
+    "identity":  {
+                     "type":  "systemAssigned"
+                 },
+    "location":  "West Europe",
+    "properties":  {
+                       "parameters":  {
+                                          "owner":  {
+                                                        "value":  "s123"
+                                                    },
+                                          "purpose":  {
+                                                          "value":  "dev"
+                                                      },
+                                          "applicationName":  {
+                                                                  "value":  "widgeter"
+                                                              },
+                                          "environment":  {
+                                                              "value":  "001"
+                                                          },
+                                          "mySqlAdminLogin":  {
+                                                                  "value":  "AdminUser"
+                                                              },
+                                          "mySqlAdminPassword":  {
+                                                                     "reference":  {
+                                                                                       "keyVault":  {
+                                                                                                        "id":  "subscriptions/83140706-7c33-427a-a373-27883c159e91/resourceGroups/s123-dev-001/providers/Microsoft.KeyVault/vaults/s123-dev-001-kv/keys"
+                                                                                                    },
+                                                                                       "secretName":  "mySqlAdminPassword"
+                                                                                   }
+                                                                 }
+                                      },
+                       "resourceGroups":  {
+                                              "bpRg":  {
+                                                           "name":  "s123-dev-widgeter-001",
+                                                           "location":  "West Europe"
+                                                       }
+                                          }
+                   }
+}
