@@ -19,7 +19,7 @@ jobs:
   pool:
     vmImage: windows-latest
   steps:
-  - task: file-creator@5
+  - task: file-creator@6
     inputs:
       filepath: 'appPayload.json'
       filecontent: |
