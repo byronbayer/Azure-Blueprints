@@ -1,0 +1,49 @@
+parameters:
+  ServiceConnection: ''
+  BlueprintName: ''
+  BaseName: ''
+  SubscriptionId: ''
+steps:
+- task: file-creator@5
+  inputs:
+    filepath: 'appPayload.json'
+    filecontent: |
+      {
+          "identity": {
+              "type": "systemAssigned"
+          },
+          "location": "West Europe",
+          "properties": {
+              "parameters": {
+                  "projectIdentifier": {
+                      "value": "sat"
+                  },
+                  "applicationName": {
+                      "value": "widget"
+                  },
+                  "usage": {
+                      "value": "dev"
+                  },
+                  "mySqlAdminLogin": {
+                      "value": "AdminUser"
+                  },
+                  "mySqlAdminPassword": {
+                      "value": "P@ssword1234"
+                  }
+              },
+              "resourceGroups": {
+                  "bpRg": {
+                      "name": "sat-widget-001",
+                      "location": "UK South"
+                  }
+              }
+          }
+      }
+    endWithNewLine: true
+- template: ./assign-blueprint.yml
+  parameters: 
+    ServiceConnection: $(serviceConnection)
+    BlueprintName: "WidgetManual"
+    ServiceName: "MyWidget"
+    ParametersFile: 'appPayload.json'
+    SubscriptionId: '83140706-7c33-427a-a373-27883c159e91'

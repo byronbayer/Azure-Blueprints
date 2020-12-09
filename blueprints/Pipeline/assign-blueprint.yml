@@ -1,0 +1,17 @@
+parameters:
+  ServiceConnection: ''
+  BlueprintName: ''
+  ServiceName: ''
+  ParametersFile: ''
+  Environment: ''
+  SubscriptionId: ''
+steps:
+- task: AssignBlueprint@1
+  inputs:
+    azureSubscription: '${{ parameters.ServiceConnection }}'
+    AssignmentName: '${{ parameters.BlueprintName }}-${{ parameters.ServiceName }}'
+    BlueprintName: '${{ parameters.BlueprintName }}'
+    ParametersFile: ${{ parameters.ParametersFile }}
+    AlternateSubscription: true
+    SubscriptionID: '${{ parameters.SubscriptionId }}'
+    Wait: true
