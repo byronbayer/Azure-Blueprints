@@ -2,11 +2,12 @@
     "identity": {
         "type": "systemAssigned"
     },
-    "location": "West Europe",
+    "location": "UK South",
     "properties": {
+        "blueprintId": "",
         "parameters": {
             "owner": {
-                "value": "s126"
+                "value": "sat"
             },
             "purpose": {
                 "value": "dev"
@@ -23,7 +24,8 @@
             "mySqlAdminPassword": {
                 "reference": {
                     "keyVault": {
-                        "id": "subscriptions/83140706-7c33-427a-a373-27883c159e91/resourceGroups/s123-dev-001/providers/Microsoft.KeyVault/vaults/s123-dev-001-kv/keys"
+                        
+                        "id": "subscriptions/83140706-7c33-427a-a373-27883c159e91/resourceGroups/shared-001/providers/Microsoft.KeyVault/vaults/sat-shared-001-kv/keys"
                     },
                     "secretName": "mySqlAdminPassword"
                 }
@@ -31,8 +33,8 @@
         },
         "resourceGroups": {
             "bpRg": {
-                "name": "s141d01-tlevels-gfa",
-                "location": "West Europe"
+                "name": "sat-grafana-001",
+                "location": "UK South"
             }
         }
     }

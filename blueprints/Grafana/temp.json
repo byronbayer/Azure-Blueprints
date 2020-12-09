@@ -1,39 +1,40 @@
 {
-    "identity":  {
-                     "type":  "systemAssigned"
-                 },
-    "location":  "West Europe",
-    "properties":  {
-                       "parameters":  {
-                                          "owner":  {
-                                                        "value":  "s123"
-                                                    },
-                                          "purpose":  {
-                                                          "value":  "dev"
-                                                      },
-                                          "applicationName":  {
-                                                                  "value":  "widgeter"
-                                                              },
-                                          "environment":  {
-                                                              "value":  "001"
-                                                          },
-                                          "mySqlAdminLogin":  {
-                                                                  "value":  "AdminUser"
-                                                              },
-                                          "mySqlAdminPassword":  {
-                                                                     "reference":  {
-                                                                                       "keyVault":  {
-                                                                                                        "id":  "subscriptions/83140706-7c33-427a-a373-27883c159e91/resourceGroups/s123-dev-001/providers/Microsoft.KeyVault/vaults/s123-dev-001-kv/keys"
-                                                                                                    },
-                                                                                       "secretName":  "mySqlAdminPassword"
-                                                                                   }
-                                                                 }
-                                      },
-                       "resourceGroups":  {
-                                              "bpRg":  {
-                                                           "name":  "s123-dev-widgeter-001",
-                                                           "location":  "West Europe"
-                                                       }
-                                          }
-                   }
+  "identity": {
+    "type": "systemAssigned"
+  },
+  "location": "UK South",
+  "properties": {
+    "blueprintId": "/subscriptions/83140706-7c33-427a-a373-27883c159e91/providers/Microsoft.Blueprint/blueprints/GrafanaManual/versions/2",
+    "parameters": {
+      "owner": {
+        "value": "sat"
+      },
+      "purpose": {
+        "value": "dev"
+      },
+      "applicationName": {
+        "value": "grafana"
+      },
+      "environment": {
+        "value": "001"
+      },
+      "mySqlAdminLogin": {
+        "value": "AdminUser"
+      },
+      "mySqlAdminPassword": {
+        "reference": {
+          "keyVault": {
+            "id": "subscriptions/83140706-7c33-427a-a373-27883c159e91/resourceGroups/shared-001/providers/Microsoft.KeyVault/vaults/sat-shared-001-kv/keys"
+          },
+          "secretName": "mySqlAdminPassword"
+        }
+      }
+    },
+    "resourceGroups": {
+      "bpRg": {
+        "name": "sat-dev-grafana-001",
+        "location": "UK South"
+      }
+    }
+  }
 }

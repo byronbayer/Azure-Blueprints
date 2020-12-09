@@ -69,6 +69,7 @@ $listOfArtifactAndParameterPaths | ForEach-Object {
    $artifactName = $_.artifactName
    $templateFile = $_.Template
    $parametersFile = $_.Parameters
+   $dependsOn = $_.DependsOn
 
    $existingArtifact = Get-AzBlueprintArtifact -Blueprint $blueprint -Name $artifactName -ErrorAction SilentlyContinue
    if (!$existingArtifact) {
@@ -77,7 +78,8 @@ $listOfArtifactAndParameterPaths | ForEach-Object {
          -Name $artifactName `
          -TemplateFile  $templateFile `
          -TemplateParameterFile $parametersFile `
-         -ResourceGroupName $BlueprintResourceGroupName
+         -ResourceGroupName $BlueprintResourceGroupName `
+         -DependsOn $dependsOn
    }
    else {
       Set-AzBlueprintArtifact `
@@ -86,7 +88,8 @@ $listOfArtifactAndParameterPaths | ForEach-Object {
          -Name $artifactName `
          -TemplateFile $templateFile `
          -TemplateParameterFile $parametersFile `
-         -ResourceGroupName $BlueprintResourceGroupName
+         -ResourceGroupName $BlueprintResourceGroupName `
+         -DependsOn $dependsOn
    }
 }
 
