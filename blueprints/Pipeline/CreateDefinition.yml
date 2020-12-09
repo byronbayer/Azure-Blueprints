@@ -14,8 +14,8 @@ trigger:
     - Blueprints/*
 
 jobs:
-- job: CreateGrafanaBlueprint
-  displayName: Upsert Grafana Blueprint
+- job: CreateBlueprintDefinition
+  displayName: Upsert Blueprint
   pool:
     vmImage: windows-latest
   steps:

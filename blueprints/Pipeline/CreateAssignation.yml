@@ -1,49 +1,64 @@
-parameters:
-  ServiceConnection: ''
-  BlueprintName: ''
-  BaseName: ''
-  SubscriptionId: ''
-steps:
-- task: file-creator@5
-  inputs:
-    filepath: 'appPayload.json'
-    filecontent: |
-      {
-          "identity": {
-              "type": "systemAssigned"
-          },
-          "location": "West Europe",
-          "properties": {
-              "parameters": {
-                  "projectIdentifier": {
-                      "value": "sat"
-                  },
-                  "applicationName": {
-                      "value": "widget"
-                  },
-                  "usage": {
-                      "value": "dev"
-                  },
-                  "mySqlAdminLogin": {
-                      "value": "AdminUser"
-                  },
-                  "mySqlAdminPassword": {
-                      "value": "P@ssword1234"
-                  }
-              },
-              "resourceGroups": {
-                  "bpRg": {
-                      "name": "sat-widget-001",
-                      "location": "UK South"
-                  }
-              }
-          }
-      }
-    endWithNewLine: true
-- template: ./assign-blueprint.yml
-  parameters: 
-    ServiceConnection: $(serviceConnection)
-    BlueprintName: "WidgetManual"
-    ServiceName: "MyWidget"
-    ParametersFile: 'appPayload.json'
-    SubscriptionId: '83140706-7c33-427a-a373-27883c159e91'
+name: CreateBlueprintDefinition
+resources:
+  repositories:
+    - repository: self
+      persistCredentials: true
+      clean: true
+
+trigger:
+  branches:
+    include:
+    - master
+  paths:
+    include:
+    - Blueprints/*
+
+jobs:
+- job: CreateBPAssignation
+  displayName: Upsert Blueprint
+  pool:
+    vmImage: windows-latest
+  steps:
+  - task: file-creator@5
+    inputs:
+      filepath: 'appPayload.json'
+      filecontent: |
+        {
+            "identity": {
+                "type": "systemAssigned"
+            },
+            "location": "West Europe",
+            "properties": {
+                "parameters": {
+                    "projectIdentifier": {
+                        "value": "sat"
+                    },
+                    "applicationName": {
+                        "value": "widget"
+                    },
+                    "usage": {
+                        "value": "dev"
+                    },
+                    "mySqlAdminLogin": {
+                        "value": "AdminUser"
+                    },
+                    "mySqlAdminPassword": {
+                        "value": "P@ssword1234"
+                    }
+                },
+                "resourceGroups": {
+                    "bpRg": {
+                        "name": "sat-widget-001",
+                        "location": "UK South"
+                    }
+                }
+            }
+        }
+      endWithNewLine: true
+  - template: ./assign-blueprint.yml
+    parameters: 
+      ServiceConnection: $(serviceConnection)
+      BlueprintName: "WidgetManual"
+      ServiceName: "MyWidget"
+      ParametersFile: 'appPayload.json'
+      SubscriptionId: '83140706-7c33-427a-a373-27883c159e91'
