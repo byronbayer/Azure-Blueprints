@@ -1,7 +1,7 @@
 Set-Location $PSScriptRoot
 
 $SubscriptionId = '83140706-7c33-427a-a373-27883c159e91'
-$BlueprintName = 'GrafanaManual'
+$BlueprintName = 'WidgetManual'
 $BlueprintFile = '.\blueprint.json'
 $BluePrintResourceGroupName = 'BPRG'
 $Location = 'UK South'

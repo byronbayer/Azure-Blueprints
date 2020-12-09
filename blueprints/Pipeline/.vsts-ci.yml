@@ -1,4 +1,4 @@
-name: CreateGrafana
+name: CreateBlueprintDefinition
 resources:
   repositories:
     - repository: self
@@ -11,7 +11,7 @@ trigger:
     - master
   paths:
     include:
-    - Blueprints/Grafana/*
+    - Blueprints/*
 
 jobs:
 - job: CreateGrafanaBlueprint
